@@ -1,3 +1,5 @@
+package db
+
 import java.time.LocalDate
 
 class ReviewObject() {

@@ -1,3 +1,5 @@
+package db
+
 class BusinessObject() {
 
     lateinit var business_id: String

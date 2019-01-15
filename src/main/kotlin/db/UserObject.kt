@@ -1,6 +1,6 @@
-import java.text.SimpleDateFormat
+package db
+
 import java.time.LocalDate
-import java.util.*
 
 class UserObject {
     lateinit var user_id: String

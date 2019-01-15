@@ -1,3 +1,5 @@
+package db
+
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
@@ -40,7 +42,8 @@ fun deserializeUser() {
         // system cannot handle to many objects at once.
         if (count > 100000){
 /*            db.populateUser(userCollection)*/
-            db.populateFriends(userCollection)
+/*            db.populateFriends(userCollection)
+            db.populateUser(userCollection)*/
             userCollection.clear()
             count = 0
         }
@@ -48,7 +51,8 @@ fun deserializeUser() {
         line = br.readLine()
         if (line == null && userCollection.isNotEmpty()) {
 /*            db.populateUser(userCollection)*/
-            db.populateFriends(userCollection)
+/*            db.populateFriends(userCollection)
+            db.populateUser(userCollection)*/
             userCollection.clear()
             count = 0
         }
@@ -77,16 +81,16 @@ fun deserializeReview() {
         reviewCollection.add(getReview(mapper, line))
         // system cannot handle to many objects at once.
         if (count > 100000){
-/*            db.populateUser(userCollection)*/
-            db.populateReview(reviewCollection)
+/*            db.populateReview(reviewCollection)*/
+            db.populateUserReview(reviewCollection)
             reviewCollection.clear()
             count = 0
         }
 
         line = br.readLine()
         if (line == null && reviewCollection.isNotEmpty()) {
-/*            db.populateUser(userCollection)*/
-            db.populateReview(reviewCollection)
+/*            db.populateReview(reviewCollection)*/
+            db.populateUserReview(reviewCollection)
             reviewCollection.clear()
             count = 0
         }

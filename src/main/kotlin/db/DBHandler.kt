@@ -1,3 +1,5 @@
+package db
+
 import java.sql.*
 
 class DBHandler {
@@ -16,6 +18,8 @@ class DBHandler {
             println(error.message)
         }
     }
+
+
 
     fun populateCategory(objectList: MutableList<BusinessObject>) {
 
@@ -128,5 +132,50 @@ class DBHandler {
         if (db!!.isClosed) {
             println("Insert review done")
         }
+    }
+
+    fun populateBusinessReview(objectList: MutableList<ReviewObject>) {
+        connect()
+
+        var query = "INSERT INTO businessreview (review_id, business_id) VALUES (?, ?)"
+
+
+        var pstmt = this.db?.prepareStatement(query)
+        for (review in objectList) {
+            pstmt?.setString(1, review.review_id)
+            pstmt?.setString(2, review.business_id)
+            pstmt?.addBatch()
+        }
+
+        pstmt?.executeBatch()
+        db?.commit()
+        db?.close()
+
+        if (db!!.isClosed) {
+            println("Insert business review done")
+        }
+
+    }
+     fun populateUserReview(objectList: MutableList<ReviewObject>) {
+        connect()
+
+        var query = "INSERT INTO userreview (review_id, user_id) VALUES (?, ?)"
+
+
+        var pstmt = this.db?.prepareStatement(query)
+        for (review in objectList) {
+            pstmt?.setString(1, review.review_id)
+            pstmt?.setString(2, review.user_id)
+            pstmt?.addBatch()
+        }
+
+        pstmt?.executeBatch()
+        db?.commit()
+        db?.close()
+
+        if (db!!.isClosed) {
+            println("Insert user review done")
+        }
+
     }
 }

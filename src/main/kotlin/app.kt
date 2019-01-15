@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
     println("Welcome to app and stuff")
-  deserializeUser()
+    menus.Menus().mainMenu()
 }
 
