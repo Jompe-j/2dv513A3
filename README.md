@@ -1,4 +1,4 @@
-# App to perform DB calls for course 2dv513 - Linneaus university
+# App to perform DB queries - Linneaus university course 2dv513
 
 A Kotlin application to test some basic DB querise for a course in DB. The application used a dataset from yelp. 
 
